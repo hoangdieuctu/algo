@@ -6,33 +6,33 @@ public class EvaluateRPN {
 
     static int eval(String[] tokens) {
         String operations = "+-*/";
-        Stack<String> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
 
         for (String token : tokens) {
             if (!operations.contains(token)) {
-                stack.push(token);
+                stack.push(Integer.parseInt(token));
             } else {
-                Integer f = Integer.parseInt(stack.pop());
-                Integer n = Integer.parseInt(stack.pop());
+                Integer f = stack.pop();
+                Integer n = stack.pop();
 
                 switch (token) {
                     case "+":
-                        stack.push(String.valueOf(n + f));
+                        stack.push(n + f);
                         break;
                     case "-":
-                        stack.push(String.valueOf(n - f));
+                        stack.push(n - f);
                         break;
                     case "*":
-                        stack.push(String.valueOf(n * f));
+                        stack.push(n * f);
                         break;
                     case "/":
-                        stack.push(String.valueOf((n / f)));
+                        stack.push(n / f);
                         break;
                 }
             }
         }
 
-        return Integer.parseInt(stack.pop());
+        return stack.pop();
     }
 
 }
