@@ -1,6 +1,5 @@
 package com.hoangdieuctu.algo;
 
-import com.hoangdieuctu.algo.SlidingWindow;
 import org.junit.Assert;
 import org.junit.Test;
 
